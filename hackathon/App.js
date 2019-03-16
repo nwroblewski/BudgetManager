@@ -3,19 +3,26 @@ import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 import {createStackNavigator, createAppContainer, createBottomTabNavigator} from 'react-navigation';
 import LoginScreen from './components/LoginScreen';
 import ProfileScreen from './components/ProfileScreen';
-
+import SpendingsScreen from './components/SpendingsScreen';
 
 const AppNavigator = createStackNavigator(
   {
     Home: {screen: LoginScreen},
     Profile: {screen: ProfileScreen},
-    // Spendings: {screen: SpendingsScreen}
   }
 );
-const TabNavigator = createBottomTabNavigator(
+
+const TabNavigator  = createBottomTabNavigator(
   {
     Home: AppNavigator,
-  }
+    Spendings: SpendingsScreen,
+  },
+  {
+    defaultNavigationOptions: ({navigation})=>({
+
+    })
+
+  },
 );
 
 const AppContainer = createAppContainer(TabNavigator);
